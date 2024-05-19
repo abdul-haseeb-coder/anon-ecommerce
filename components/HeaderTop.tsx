@@ -1,12 +1,6 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLinkedinIn,
-  faGithub,
-  faUpwork,
-  faXTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import styles from "./HeaderTop.module.css";
+// import React from "react";
+import Image from "next/image";
+
 type SocialMediaLink = {
   name: string;
   url: string;
@@ -17,14 +11,22 @@ const socialMediaLinks: SocialMediaLink[] = [
   {
     name: "Upwork",
     url: "https://www.upwork.com/freelancers/~017890f8a3624ddf25",
-    icon: faUpwork,
+    icon: "/icons/upwork.svg",
   },
-  { name: "X", url: "https://x.com/AbdulHaseeb998", icon: faXTwitter },
-  { name: "Github", url: "https://github.com/code-haseeb", icon: faGithub },
+  {
+    name: "X",
+    url: "https://x.com/AbdulHaseeb998",
+    icon: "/icons/x-twitter.svg",
+  },
+  {
+    name: "Github",
+    url: "https://github.com/code-haseeb",
+    icon: "/icons/github.svg",
+  },
   {
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/abdul-haseeb-akram/",
-    icon: faLinkedinIn,
+    icon: "/icons/linkedin-in.svg",
   },
 ];
 
@@ -39,13 +41,29 @@ const HeaderTop: React.FC = () => {
                 href={link.url}
                 className="social-link"
                 target="_blank"
-                aria-label={link.name}
+                rel="noopener noreferrer"
               >
-                <FontAwesomeIcon icon={link.icon} />
+                <Image src={link.icon} alt={link.name} width={24} height={24} />
               </a>
             </li>
           ))}
         </ul>
+        <div className="header-alert-news">
+          <p>
+            <b>Free Shipping</b> This Week Order Over - $55
+          </p>
+        </div>
+        <div className="header-top-actions">
+          <select name="currency">
+            <option value="usd">USD &#36;</option>
+            <option value="eur">EUR &#8364;</option>
+          </select>
+          <select name="language">
+            <option value="en-US">English</option>
+            <option value="es-ES">Espa&ntilde;ol</option>
+            <option value="fr">Fran&ccedil;ais</option>
+          </select>
+        </div>
       </div>
     </div>
   );
