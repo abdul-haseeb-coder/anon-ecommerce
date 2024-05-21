@@ -1,6 +1,6 @@
-// import React from "react";
+ import React from "react";
 import Image from "next/image";
-
+import test from "test"
 type SocialMediaLink = {
   name: string;
   url: string;
@@ -51,6 +51,7 @@ const HeaderTop: React.FC = () => {
         <div className="header-alert-news">
           <p>
             <b>Free Shipping</b> This Week Order Over - $55
+             <test/>
           </p>
         </div>
         <div className="header-top-actions">
