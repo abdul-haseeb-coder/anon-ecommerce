@@ -1,8 +1,12 @@
-import nextTranslate from 'next-translate';
-import i18nConfig from './i18n';
 
+// next.config.mjs
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  ...nextTranslate(i18nConfig),
+  i18n: {
+    locales: ['en', 'es', 'fr'],
+    defaultLocale: 'en',
+  },
 };
 
 export default nextConfig;
