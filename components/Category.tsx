@@ -1,20 +1,48 @@
 
-"use client"
 import React from 'react';
-import CategoryItem from './CategoryItem';
+import Image from 'next/image';
+import Link from 'next/link';
 
-const categories = [
-  { imgSrc: '/icons/dress.svg', altText: 'dress & frock', title: 'Dress & frock', amount: 53, link: '#' },
-  { imgSrc: '/icons/coat.svg', altText: 'winter wear', title: 'Winter wear', amount: 58, link: '#' },
-  { imgSrc: '/icons/glasses.svg', altText: 'glasses & lens', title: 'Glasses & lens', amount: 68, link: '#' },
-  { imgSrc: '/icons/shorts.svg', altText: 'shorts & jeans', title: 'Shorts & jeans', amount: 84, link: '#' },
-  { imgSrc: '/icons/tee.svg', altText: 't-shirts', title: 'T-shirts', amount: 35, link: '#' },
-  { imgSrc: '/icons/jacket.svg', altText: 'jacket', title: 'Jacket', amount: 16, link: '#' },
-  { imgSrc: '/icons/watch.svg', altText: 'watch', title: 'Watch', amount: 27, link: '#' },
-  { imgSrc: '/icons/hat.svg', altText: 'hat & caps', title: 'Hat & caps', amount: 39, link: '#' },
-];
 
-const Category = () => {
+
+
+interface CategoryItemProps {
+  imgSrc: string;
+  altText: string;
+  title: string;
+  itemCount: number;
+  href: string;
+}
+
+const CategoryItem: React.FC<CategoryItemProps> = ({ imgSrc, altText, title, itemCount, href }) => {
+  return (
+    <div className="category-item">
+      <div className="category-img-box">
+        <Image src={imgSrc} alt={altText} width={30} height={30} />
+      </div>
+      <div className="category-content-box">
+        <div className="category-content-flex">
+          <h3 className="category-item-title">{title}</h3>
+          <p className="category-item-amount">({itemCount})</p>
+        </div>
+        <Link href={href} className="category-btn">Show all</Link>
+      </div>
+    </div>
+  );
+};
+
+const Category: React.FC = () => {
+  const categories = [
+    { imgSrc: '/icons/dress.svg', altText: 'dress & frock', title: 'Dress & frock', itemCount: 53, href: '#' },
+    { imgSrc: '/icons/coat.svg', altText: 'winter wear', title: 'Winter wear', itemCount: 58, href: '#' },
+    { imgSrc: '/icons/glasses.svg', altText: 'glasses & lens', title: 'Glasses & lens', itemCount: 68, href: '#' },
+    { imgSrc: '/icons/shorts.svg', altText: 'shorts & jeans', title: 'Shorts & jeans', itemCount: 84, href: '#' },
+    { imgSrc: '/icons/tee.svg', altText: 't-shirts', title: 'T-shirts', itemCount: 35, href: '#' },
+    { imgSrc: '/icons/jacket.svg', altText: 'jacket', title: 'Jacket', itemCount: 16, href: '#' },
+    { imgSrc: '/icons/watch.svg', altText: 'watch', title: 'Watch', itemCount: 27, href: '#' },
+    { imgSrc: '/icons/hat.svg', altText: 'hat & caps', title: 'Hat & caps', itemCount: 39, href: '#' },
+  ];
+
   return (
     <div className="category">
       <div className="container">
@@ -25,8 +53,8 @@ const Category = () => {
               imgSrc={category.imgSrc}
               altText={category.altText}
               title={category.title}
-              amount={category.amount}
-              link={category.link}
+              itemCount={category.itemCount}
+              href={category.href}
             />
           ))}
         </div>
@@ -34,4 +62,6 @@ const Category = () => {
     </div>
   );
 };
+
 export default Category;
+
