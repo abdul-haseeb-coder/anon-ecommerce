@@ -12,22 +12,22 @@ const socialMediaLinks: SocialMediaLink[] = [
   {
     name: "Upwork",
     url: "https://www.upwork.com/freelancers/~017890f8a3624ddf25",
-    icon: "/icons/upwork.svg",
+    icon: "/icons/social/upwork.svg",
   },
   {
     name: "X",
     url: "https://x.com/AbdulHaseeb998",
-    icon: "/icons/x-twitter.svg",
+    icon: "/icons/social/x-twitter.svg",
   },
   {
     name: "Github",
     url: "https://github.com/code-haseeb",
-    icon: "/icons/github.svg",
+    icon: "/icons/social/github.svg",
   },
   {
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/abdul-haseeb-akram/",
-    icon: "/icons/linkedin-in.svg",
+    icon: "/icons/social/linkedin-in.svg",
   },
 ];
 
