@@ -1,4 +1,5 @@
 
+"use client"
 import React from 'react';
 import CategoryItem from './CategoryItem';
 
@@ -33,5 +34,4 @@ const Category = () => {
     </div>
   );
 };
-
 export default Category;
